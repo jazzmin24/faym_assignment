@@ -88,8 +88,7 @@ class _CollectionCardState extends State<CollectionCard> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -114,12 +113,10 @@ class _CollectionCardState extends State<CollectionCard> {
                 ],
               ),
             ),
-
             AnimatedCrossFade(
               firstChild: const SizedBox.shrink(),
               secondChild: Padding(
-                padding:
-                    const EdgeInsets.only(left: 16, right: 16, bottom: 16),
+                padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
                 child: SizedBox(
                   height: 110,
                   child: ListView.separated(
@@ -200,17 +197,29 @@ class _ImageThumbnail extends StatelessWidget {
               ),
             ),
             if (showOverlay)
-              GestureDetector(
-                onTap: onOverlayTap,
-                child: Container(
-                  color: Colors.black.withValues(alpha: 0.55),
+              Positioned(
+                right: -5,
+                top: 0,
+                bottom: 0,
+                child: GestureDetector(
+                  onTap: onOverlayTap,
                   child: Center(
-                    child: Text(
-                      '+$extraCount',
-                      style: GoogleFonts.poppins(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.white,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 10,
+                        vertical: 8,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.black.withValues(alpha: 0.7),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: Text(
+                        '+$extraCount',
+                        style: GoogleFonts.poppins(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ),
